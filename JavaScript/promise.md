@@ -6,22 +6,22 @@ Promise有以下三个状态：
 - __fulfilled__（已成功）
 - __rejected__（已失败）
 ```js
-// promise接受一个函数作为参数，函数接受两个回调函数为参数，第一个resolve为成功的回调函数，第二个为失败的回调函数
+// 接受一个函数作为参数，函数接受两个回调函数为参数，第一个resolve为成功的回调函数，第二个为失败的回调函数
 const http = new Promise((resolve, reject) => {
-    http.get('url',data)
-    .success(res => {
-        // 正确返回数据
-        resolve(res);
-    })
-    .error(err => {
-        // 请求发生错误
-        reject(err);
-    })
+  http.get('url',data)
+  .success(res => {
+    // 正确返回数据
+    resolve(res);
+  })
+  .error(err => {
+    // 请求发生错误
+    reject(err);
+  })
 })
 http.then(res => {// 成功后的回调函数
-    console.log(res);
+  console.log(res);
 },error => { // 失败后的回调函数
-    console.log(error)
+  console.log(error)
 })
 ```
 ### Promis.all(Array<promise>)
@@ -32,13 +32,13 @@ http.then(res => {// 成功后的回调函数
 ```js
 Promise.all([promise1, promise2, promise3])
 .than(res => {
-    /*
-    * 处理返回的res结果
-    * res类型为数组，分别是参数中promise的返回内容[res1, res2, res3]
-    */
-    res1 = res[0];
-    res2 = res[1];
-    res3 = res[2];
+  /*
+  * 处理返回的res结果
+  * res类型为数组，分别是参数中promise的返回内容[res1, res2, res3]
+  */
+  res1 = res[0];
+  res2 = res[1];
+  res3 = res[2];
 })
 ```
 ### promise.race(Array<promise>)
@@ -47,7 +47,7 @@ Promise.all([promise1, promise2, promise3])
 // Promise.race为竞争关系，返回第一个异步执行完成的内容
 Promise.race([promise1, promise2, promise3])
 .than(res => {
-    // 第一个执行完成者
+  // 第一个执行完成者
 })
 ```
 
