@@ -34,15 +34,19 @@ Page({
   },
 
   onLoad(){
+    this.setHeight();
+    this._loadData();
+  },
+
+  // 设置scrollHeight
+  setHeight(){
     let systemInfo = wx.getSystemInfoSync();
     let windowHeight = systemInfo.windowHeight;
-    let h = 0;
     const promise = new Promise((resolve,reject)=>{
       const query = wx.createSelectorQuery()
       query.select(selector).boundingClientRect()
       query.exec(function (res) {
-        h = res[0].height
-        resolve(h)
+        resolve(res[0].height)
       })
     })
     promise.then((res)=>{
@@ -50,7 +54,6 @@ Page({
         scrollHeight: windowHeight - res
       })
     })
-    this._loadData();
   },
 
   // 获取数据
