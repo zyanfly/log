@@ -42,8 +42,7 @@ Promise.all([promise1, promise2, promise3])
 })
 ```
 ### promise.race(Array<promise>)
-
-```
+```js
 // Promise.race为竞争关系，返回第一个异步执行完成的内容
 Promise.race([promise1, promise2, promise3])
 .than(res => {
